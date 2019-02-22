@@ -1,6 +1,6 @@
 <template>
   <div class="box-icone">
-    <router-link :to="'/user/'">{{this.$store.state.userRole.name}}</router-link>
+    <router-link :to="'/user/'">{{this.$store.state.userName}}</router-link>
     <router-link :to="'/user/'">
       <img class="icone" src="@/assets/img/profile-icone.png" alt="profile icone">
     </router-link>

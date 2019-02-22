@@ -2,7 +2,6 @@
   <div id="app">
     <Header/>
     <router-view/>
-    <h1>Welcome to Tip</h1>
   </div>
 </template>
 

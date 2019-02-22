@@ -20,12 +20,12 @@
       <router-link to="/addresto">AddResto</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <h2>Home</h2>
-
   </header>
 </template>
 
 <script>
+import axios from "axios";
+
 import BoxUser from "../components/BoxUser.vue";
 
 export default {
@@ -33,8 +33,24 @@ export default {
     BoxUser
   },
   created() {
-    let cookieUser = document.cookie.replace(/(?:(?:^|.*;\s*)user\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-    if(cookieUser){this.$store.state.userRole.name = cookieUser}
+    let cookieUser = document.cookie.replace(
+      /(?:(?:^|.*;\s*)userId\s*\=\s*([^;]*).*$)|^.*$/,
+      "$1"
+    );
+    if (cookieUser) {
+      //alert(cookieUser)
+      //this.$store.state.userName = cookieUser;
+      axios
+      .get(
+        this.$store.state.IP +
+          "/api/Users/" +
+          cookieUser
+      )
+      .then(response => {
+        this.$store.state.userStore = response.data;
+        this.$store.state.userName = this.$store.state.userStore.userName;
+      });
+    }
   }
 };
 </script>

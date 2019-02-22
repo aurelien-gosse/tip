@@ -21,7 +21,7 @@ export default {
       let suppr = confirm("Voulez-vous vraiment supprimer le plat ?");
       if (suppr) {
         axios
-          .delete(this.$store.state.IP + "/api/Foods/GetDishByRestaurantId/" + platId)
+          .delete(this.$store.state.IP + "/api/Foods/" + platId)
           .then();
       }
     }

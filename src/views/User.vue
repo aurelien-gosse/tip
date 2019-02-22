@@ -1,11 +1,12 @@
 <template>
   <main>
-    <form class="formAddResto" @submit.prevent="connectUser">
+    <form v-if="this.$store.state.userName == ''" class="formAddResto" @submit.prevent="connectUser">
       <h2>Connexion User</h2>
-      <input type="text" class="form-control" placeholder="User" v-model="user.name">
+      <input type="text" required class="form-control" placeholder="User" v-model="user.name">
+      <input type="password" required class="form-control" placeholder="Pass" v-model="user.pass">
       <button type="submit" class="btn btn-primary buttonForm">Connexion</button>
-      <button @click="decoUser" type="button" class="btn btn-primary buttonForm">Déco</button>
     </form>
+    <button v-if="this.$store.state.userName != ''" @click="decoUser" type="button" class="btn btn-primary buttonForm">Déco</button>
   </main>
 </template>
 
@@ -22,15 +23,33 @@ export default {
   created() {},
   methods: {
     connectUser() {
-      if(this.user.name){
-        this.$store.state.userRole.name = this.user.name;
-        document.cookie = "user="+ this.user.name;
+      if (this.user.name && this.user.pass) {
+        axios
+          .get(
+            this.$store.state.IP +
+              "/api/User/Loggin/" +
+              this.user.name +
+              "/" +
+              this.user.pass
+          )
+          .then(response => {
+            this.$store.state.userStore = response.data;
+
+            document.cookie = "userId=" + this.$store.state.userStore.id;
+
+            //alert(this.$store.state.userStore.userName);
+            this.$store.state.userName = this.$store.state.userStore.userName;
+          })
+          .catch(error => {
+            alert("Nop !!!");
+          });
       }
     },
     decoUser() {
-      document.cookie = "user=";
-      this.$store.state.userRole.name = "";
-      this.user.name = "";
+      //alert("deco !!!");
+      document.cookie = "userId=";
+      this.$store.state.userStore = [];
+      this.$store.state.userName = "";
     }
   }
 };
