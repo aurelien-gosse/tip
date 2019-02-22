@@ -28,9 +28,38 @@
       </span>
     </section>
     <!-- SECTION Liste de restaurants -->
-    <section class="list-resto">
+    <!-- <section class="list-resto">
       <RestoList :restos="restos"/>
-    </section>
+    </section> -->
+    <router-link :to="'/user/'">
+      <section class="box-buttons-cat">
+        <div class="box-one-button">
+          <img class="icone" src="@/assets/img/pizza-hp.jpg" alt="profile icone">
+          <h2>Pizza</h2>
+        </div>
+        <div class="box-one-button">
+          <img class="icone" src="@/assets/img/burger.jpg" alt="profile icone">
+          <h2>Burger</h2>
+        </div>
+        <div class="box-one-button">
+          <img class="icone" src="@/assets/img/asiatique.jpg" alt="profile icone">
+          <h2>Asiatique</h2>
+        </div>
+        <div class="box-one-button">
+          <img class="icone" src="@/assets/img/sushi.jpg" alt="profile icone">
+          <h2>Sushi</h2>
+        </div>
+        <div class="box-one-button">
+          <img class="icone" src="@/assets/img/taco.jpg" alt="profile icone">
+          <h2>Taco</h2>
+        </div>
+        <div class="box-one-button">
+          <img class="icone" src="@/assets/img/vege.jpg" alt="profile icone">
+          <h2>Végétarien</h2>
+        </div>
+
+      </section>
+    </router-link>
   </main>
 </template>
 
@@ -64,5 +93,24 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+  .box-buttons-cat{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    .box-one-button{
+      background-color: #003542;
+      margin: 10px;
+      border-radius: 0 0 12px 12px;
+      img{
+        width: 300px;
+      }
+      h2{
+        color: #fff;
+        text-align: center;
+        margin: 5px 0 10px;
+      }  
+    }
+  }
 </style>

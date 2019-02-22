@@ -44,3 +44,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.note{
+    i{
+      padding-right: 3px;
+    }
+  }
+</style>

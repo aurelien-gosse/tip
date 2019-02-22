@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     //IP: "http://localhost:52440",
-    IP: "http://172.22.22.40:45456",
+    IP: "http://172.22.22.40:45455",
     userRole: {
       name: ""
     }
