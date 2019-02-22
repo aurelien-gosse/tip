@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <MainHome/>
+    <SearchHome/>
   </div>
 </template>
 
 <script>
-import MainHome from "../components/MainHome.vue";
+import SearchHome from "../components/SearchHome.vue";
 
 export default {
   name: "app",
@@ -14,7 +14,7 @@ export default {
     };
   },
   components: {
-    MainHome
+    SearchHome
   }
 };
 </script>

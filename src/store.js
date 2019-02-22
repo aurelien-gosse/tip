@@ -3,14 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
   state: {
-
-  },
-  mutations: {
-
-  },
-  actions: {
-
+    //IP: "http://localhost:52440",
+    IP: "http://172.22.22.40:45456",
+    userRole: {
+      name: ""
+    }
   }
 })
