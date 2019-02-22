@@ -20,6 +20,8 @@
       <router-link to="/addresto">AddResto</router-link>|
       <router-link to="/about">About</router-link>
     </div>
+    <h2>Home</h2>
+
   </header>
 </template>
 
