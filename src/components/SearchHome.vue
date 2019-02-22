@@ -1,5 +1,25 @@
 <template>
   <main>
+    <!-- SECTION Barre de recherche -->
+    <section class="search-wrap">
+      <!-- Zone de recherche -->
+      <div class="search-box">
+        <form @submit.prevent="searchResto" class="contact__wrapper__form">
+          <input
+            class="search"
+            type="text"
+            name="search"
+            id="search"
+            required
+            placeholder="Rechercher"
+            v-model="inputResto"
+          >
+          <button>
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </section>
     <RestoList :restos="restos"/>
   </main>
 </template>
@@ -26,7 +46,8 @@ export default {
         "api/Foods/GetDessertByRestaurantId/",
         "api/Restaurants/GetRestaurantByText/"
       ],
-      restos: []
+      restos: [],
+      inputResto: ""
     };
   },
   components: {
@@ -43,6 +64,11 @@ export default {
       .then(response => {
         this.restos = response.data;
       });
+  },
+  methods: {
+    searchResto() {
+      this.$router.push("/search/11/" + this.inputResto);
+    }
   }
 };
 </script>

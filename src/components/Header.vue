@@ -17,7 +17,7 @@
     <div id="nav">
       <router-link class="nav-a" to="/">Home</router-link>|
       <router-link class="nav-a" to="/user">User</router-link>|
-      <router-link class="nav-a" to="/addresto">AddResto</router-link>
+      <router-link v-if="!this.$store.state.userName == ''" class="nav-a" to="/addresto">AddResto</router-link>
     </div>
   </header>
 </template>

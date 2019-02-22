@@ -31,35 +31,44 @@
     <!-- <section class="list-resto">
       <RestoList :restos="restos"/>
     </section> -->
-    <router-link :to="'/user/'">
       <section class="box-buttons-cat">
         <div class="box-one-button">
+          <router-link :to="'/search/11/pizza'">
           <img class="icone" src="@/assets/img/pizza-hp.jpg" alt="profile icone">
           <h2>Pizza</h2>
+          </router-link>
         </div>
         <div class="box-one-button">
+          <router-link :to="'/search/11/burger'">
           <img class="icone" src="@/assets/img/burger.jpg" alt="profile icone">
           <h2>Burger</h2>
+          </router-link>
         </div>
         <div class="box-one-button">
+          <router-link :to="'/search/11/asiatique'">
           <img class="icone" src="@/assets/img/asiatique.jpg" alt="profile icone">
           <h2>Asiatique</h2>
+          </router-link>
         </div>
         <div class="box-one-button">
+          <router-link :to="'/search/11/sushi'">
           <img class="icone" src="@/assets/img/sushi.jpg" alt="profile icone">
           <h2>Sushi</h2>
+          </router-link>
         </div>
         <div class="box-one-button">
+          <router-link :to="'/search/11/taco'">
           <img class="icone" src="@/assets/img/taco.jpg" alt="profile icone">
           <h2>Taco</h2>
+          </router-link>
         </div>
         <div class="box-one-button">
+          <router-link :to="'/search/11/végétarien'">
           <img class="icone" src="@/assets/img/vege.jpg" alt="profile icone">
           <h2>Végétarien</h2>
+          </router-link>
         </div>
-
       </section>
-    </router-link>
   </main>
 </template>
 

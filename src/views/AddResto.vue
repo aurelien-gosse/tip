@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="formAddResto" @submit.prevent="addResto">
+    <form v-if="!this.$store.state.userName == ''" class="formAddResto" @submit.prevent="addResto">
       <h2>Ajouter un restaurant</h2>
       <input type="text" class="form-control" placeholder="Name" v-model="restoToAdd.name">
       <input type="text" class="form-control" placeholder="address" v-model="restoToAdd.address">
@@ -9,9 +9,6 @@
       <input type="text" class="form-control" placeholder="cookingType" v-model="restoToAdd.cookingType">
       <input type="text" class="form-control" placeholder="schedule" v-model="restoToAdd.schedule">
       <input type="number" class="form-control" placeholder="averageRating" v-model="restoToAdd.averageRating">
-
-      <!-- <textarea class="form-control" placeholder="Comment..." v-model="newQuestion.title"></textarea> -->
-      
       <button type="submit" class="btn btn-primary buttonForm">Créer</button>
     </form>
   </div>
