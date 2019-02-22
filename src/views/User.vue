@@ -41,12 +41,11 @@ export default {
             this.$store.state.userName = this.$store.state.userStore.userName;
           })
           .catch(error => {
-            alert("Nop !!!");
+            alert("Nope !!!");
           });
       }
     },
     decoUser() {
-      //alert("deco !!!");
       document.cookie = "userId=";
       this.$store.state.userStore = [];
       this.$store.state.userName = "";

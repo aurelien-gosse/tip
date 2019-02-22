@@ -1,6 +1,8 @@
 <template>
   <div class="all-box">
-    <PlatItem v-for="p in plats" :key="p.id" :plat="p"/>
+    <div class="all-plat">
+      <PlatItem v-for="p in plats" :key="p.id" :plat="p"/>
+    </div>
   </div>
 </template>
 
@@ -16,5 +18,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.all-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .all-plat{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 </style>

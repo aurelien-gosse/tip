@@ -19,7 +19,7 @@
       <h6>11/02/2018</h6>
       <p>{{comm.content}}</p>
     </div>
-    <button
+    <button v-if="!this.$store.state.userName == ''"
       @click="deleteComm(comm.id)"
       type="button"
       class="btn btn-primary buttonHome"
@@ -44,3 +44,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.note{
+    i{
+      padding-right: 3px;
+    }
+  }
+</style>

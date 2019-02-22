@@ -15,10 +15,9 @@
       </div>
     </div>
     <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/user">User</router-link>|
-      <router-link to="/addresto">AddResto</router-link>|
-      <router-link to="/about">About</router-link>
+      <router-link class="nav-a" to="/">Home</router-link>|
+      <router-link class="nav-a" to="/user">User</router-link>|
+      <router-link class="nav-a" to="/addresto">AddResto</router-link>
     </div>
   </header>
 </template>
@@ -57,16 +56,21 @@ export default {
 
 <style lang="scss">
 #nav {
-  position: fixed;
+  position: absolute;
   top: 0px;
   z-index: 1;
-  background: #f42b65;
-  color: white;
-  a {
-    color: white;
+  color:#f42b65;
+  a{
+    color:#f42b65;
   }
   a.router-link-exact-active {
-    color: #003542;
+    color: #003542 !important;
+  }
+  .nav-a{
+    color: #f42b65 !important;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    margin: 5px;
   }
 }
 </style>

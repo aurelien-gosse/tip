@@ -11,7 +11,6 @@
             <h6>{{resto.cookingType}}</h6>
           </router-link>
         </div>
-
         <div class="note">
           <i class="fas fa-circle"></i>
           <i class="fas fa-circle"></i>
@@ -38,7 +37,7 @@
       </div>
     </div>
     <button
-      v-if="this.$store.state.userRole.name=='admin'"
+      v-if="!this.$store.state.userName == ''"
       @click="deleteResto(resto.id)"
       type="button"
       class="btn btn-primary buttonHome"
@@ -69,6 +68,14 @@ export default {
 <style lang="scss">
 .box-resto-admin {
   display: flex;
+  .box-resto{
+    width: 100%;
+  .note{
+    i{
+      padding-right: 3px;
+    }
+  }
+  }
   .buttonHome {
     font-family: "Oswald", sans-serif;
     height: 50px;

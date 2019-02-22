@@ -1,6 +1,6 @@
 <template>
   <div class="box-icone">
-    <router-link :to="'/user/'">{{this.$store.state.userName}}</router-link>
+    <router-link class="user-name" :to="'/user/'">{{this.$store.state.userName}}</router-link>
     <router-link :to="'/user/'">
       <img class="icone" src="@/assets/img/profile-icone.png" alt="profile icone">
     </router-link>
@@ -12,5 +12,12 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
+    .user-name{
+      position: absolute;
+      top: 60px;
+      right: 46px;
+      color: #f42b65;
+      font-family: "Oswald", sans-serif;
+    }
 </style>

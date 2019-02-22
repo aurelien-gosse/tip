@@ -3,7 +3,7 @@
     <form
       class="formAddResto"
       @submit.prevent="modifResto"
-      v-if="this.$store.state.userRole.name=='admin'"
+      v-if="!this.$store.state.userName == ''"
     >
       <h2>Modifier le restaurant</h2>
       <input type="text" class="form-control" placeholder="Name" v-model="resto.name">
@@ -54,16 +54,23 @@
     <!-- Menu -->
     <section class="menu-box">
       <h4>Menu</h4>
-      <h6>Entrees</h6>
-
-      <h6>Plats</h6>
-      <form class="formAddPlat" @submit.prevent="addPlat">
+      <form v-if="!this.$store.state.userName == ''" class="formAddPlat" @submit.prevent="addPlat">
         <h2>Ajouter un plat</h2>
         <input type="text" class="form-control" placeholder="name" v-model="platToAdd.name">
         <input type="text" class="form-control" placeholder="description" v-model="platToAdd.description">
         <input type="number" class="form-control" placeholder="price" v-model="platToAdd.price">
+        <p>
+          <label for="pays">De quel type de plat s'agit-il ?</label><br />
+          <select name="pays" id="pays">
+              <option value="entrees">Entrées</option>
+              <option value="plat">Plat</option>
+              <option value="dessert">Dessert</option>
+          </select>
+        </p>
         <button type="submit" class="btn btn-primary buttonForm">Ajouter</button>
       </form>
+      <h6>Entrees</h6>
+      <h6>Plats</h6>
       <PlatList :plats="restopPlats"/>
       <h6>Desserts</h6>
     </section>
@@ -74,13 +81,13 @@
         <span>(102)</span>
       </h4>
       <!-- Contenant box commentaires -->
-      <div class="all-box">
+      <div class="all-comm">
         <form class="formAddComm" @submit.prevent="addComm">
-          <h2>Ajouter un commantaire</h2>
+          <h2>Ajouter un commentaire</h2>
           <input
             type="text"
             class="form-control"
-            placeholder="commantaire"
+            placeholder="commentaire"
             v-model="commToAdd.content"
           >
           <input type="number" class="form-control" placeholder="rating" v-model="commToAdd.rating">
@@ -219,9 +226,14 @@ export default {
       top: -15px;
     }
   }
+  .note{
+    i{
+      padding-right: 3px;
+    }
+  }
 }
 
-.formAddResto {
+.formAddResto,.formAddPlat,.formAddComm{
   display: flex;
   flex-flow: wrap;
   flex-direction: column;
@@ -230,19 +242,27 @@ export default {
   padding: 20px;
   background-color: #003542;
   margin-bottom: 30px;
-  h2 {
+  h2{
     font-family: "Oswald", sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     color: #fff;
     background-color: #f42b65;
-    padding: 10px 32px;
+    padding: 5px;
     margin-bottom: 5px;
     border-radius: 6px 6px 0 0;
+    width: 286px;
+    text-align: center;
   }
-  input {
+  input,select,label {
     margin: 5px;
-    padding: 5px 140px 5px 5px;
+    // padding: 5px 140px 5px 5px;
+    padding: 5px;
+    width: 286px;
+  }
+  p{
+    color: #fff;
+    font-weight: 300;
   }
 }
 
