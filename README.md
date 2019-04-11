@@ -1,4 +1,4 @@
-# 09_pit
+# pit
 
 ## Project setup
 ```
